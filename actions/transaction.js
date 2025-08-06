@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { request } from "@arcjet/next";
 import aj from "@/lib/arcjet";
-import { RateLimitError } from "./error";
+
 
 
 const genAi = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
