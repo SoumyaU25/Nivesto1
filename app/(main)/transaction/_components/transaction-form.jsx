@@ -259,7 +259,7 @@ const AddTransactionForm = ({
       {/* Description */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-gray-400">Description</label>
-        <Input placeholder="Enter description" {...register("description")} />
+        <Input className="text-gray-400" placeholder="Enter description" {...register("description")} />
         {errors.description && (
           <p className="text-sm text-red-500">{errors.description.message}</p>
         )}

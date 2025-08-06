@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
 import { checkUser } from "@/lib/checkUser";
+import { FileBarChart } from "lucide-react";
 
 const header = async () => {
   await checkUser(); // clerk middleware
@@ -22,7 +23,7 @@ const header = async () => {
           <span className="text-gray-400 font-bold text-lg">Nivesto</span>
         </Link>
         <div className="flex items-center space-x-4">
-          <SignedIn>
+          {/* <SignedIn>
             <Link
               href={"/dashboard"}
               className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
@@ -32,26 +33,107 @@ const header = async () => {
                 <span className="hidden md:inline text-white">Dashboard</span>
               </Button>
             </Link>
+            <Link
+              href="/reports"
+              className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
+            >
+              <Button className="gradient" variant="outline">
+                <FileBarChart size={18} />
+                <span className="hidden md:inline text-white">Reports</span>
+              </Button>
+            </Link>
             <Link href={"/transaction/create"}>
               <Button className="flex items-center gap-2">
                 <PenBox size={18}></PenBox>
                 <span className="hidden md:inline">Add Transaction</span>
               </Button>
             </Link>
-          </SignedIn>
+          </SignedIn> */}
+
+          <SignedIn>
+  {/* Dashboard Button */}
+  <Link href="/dashboard">
+    <Button
+      className={`
+        px-2 md:px-4 py-2
+        bg-transparent md:bg-green-600
+        text-green-600 md:text-white
+        hover:bg-transparent md:hover:bg-green-600
+        hover:text-green-600 md:hover:text-black
+        flex items-center gap-2
+        border-none shadow-none
+        transition-none md:transition-colors
+      `}
+    >
+      <LayoutDashboard
+        size={20}
+        className="text-green-600 md:text-white md:hover:text-black"
+      />
+      <span className="hidden md:inline">Dashboard</span>
+    </Button>
+  </Link>
+
+  {/* Reports Button */}
+  <Link href="/reports">
+    <Button
+      className={`
+        px-2 md:px-4 py-2
+        bg-transparent md:bg-green-600
+        text-green-600 md:text-white
+        hover:bg-transparent md:hover:bg-green-600
+        hover:text-green-600 md:hover:text-black
+        flex items-center gap-2
+        border-none shadow-none
+        transition-none md:transition-colors
+      `}
+    >
+      <FileBarChart
+        size={20}
+        className="text-green-600 md:text-white md:hover:text-black"
+      />
+      <span className="hidden md:inline">Reports</span>
+    </Button>
+  </Link>
+
+  {/* Create Transaction Button */}
+  <Link href="/transaction/create">
+    <Button
+      className={`
+        px-2 md:px-4 py-2
+        bg-transparent md:bg-green-600
+        text-green-600 md:text-white
+        hover:bg-transparent md:hover:bg-green-600
+        hover:text-green-600 md:hover:text-black
+        flex items-center gap-2
+        border-none shadow-none
+        transition-none md:transition-colors
+      `}
+    >
+      <PenBox
+        size={20}
+        className="text-green-600 md:text-white md:hover:text-black"
+      />
+      <span className="hidden md:inline">Add Transaction</span>
+    </Button>
+  </Link>
+</SignedIn>
+
+
           <SignedOut>
             <SignInButton forceRedirectUrl="/dashboard">
-              <Button className="gradient text-white" variant="outline">Login</Button>
+              <Button className="gradient text-white" variant="outline">
+                Login
+              </Button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
-            <UserButton appearance={
-              {
-                elements:{
+            <UserButton
+              appearance={{
+                elements: {
                   avatarBox: "w-10 h-10",
                 },
-              }
-            }/>
+              }}
+            />
           </SignedIn>
         </div>
       </nav>

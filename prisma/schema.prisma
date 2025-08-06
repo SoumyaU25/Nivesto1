@@ -23,6 +23,7 @@ model User{
   transactions  Transaction[]
   accounts      Account[]
   budgets       Budget[]
+  monthlyReports  MonthlyReport[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
 
@@ -82,6 +83,22 @@ model Budget {
   @@index([userId])
   @@map("budgets")
 }
+
+model MonthlyReport {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reportMonth  String   // Format: "2025-07"
+  insights     Json     // includes stats and aiInsights
+  createdAt    DateTime @default(now())
+
+  @@index([userId, reportMonth])
+  @@unique([userId, reportMonth])
+  @@map("monthly_reports")
+}
+
+
+
 
 enum TransactionType {
   INCOME
