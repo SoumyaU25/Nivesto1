@@ -15,6 +15,7 @@ async function ReportDetails({ params }) {
 
   return (
     <div className="p-6">
+      <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold gradient-title mb-5">Monthly Reports</h1>
       <h1 className="text-2xl font-bold mb-4 text-gray-300">
         {report.reportMonth} Report
       </h1>

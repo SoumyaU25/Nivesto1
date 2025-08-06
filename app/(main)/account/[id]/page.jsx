@@ -21,7 +21,7 @@ const Page = async ({ params }) => {
     <div className="space-y-8 px-5">
       <div className="flex gap-4 items-end justify-between">
       <div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-title capitalize">{account.name}</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight gradient-title capitalize">{account.name}</h1>
         <p  className="text-muted-foreground">
           {account.type.charAt(0) + account.type.slice(1).toLowerCase()} Account
         </p>

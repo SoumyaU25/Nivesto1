@@ -23,7 +23,7 @@ function ReportsPage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Your Monthly Reports</h1>
+      <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold gradient-title mb-5">Monthly Reports</h1>
 
       {!reports || reports.length === 0 ? (
         <p>No reports found.</p>
